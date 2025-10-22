@@ -1,0 +1,416 @@
+{
+    "RELIANCE": {
+        "profile": {
+            "name": "Reliance Industries",
+            "logo": "https://logo.clearbit.com/ril.com/",
+            "ticker": "RELIANCE"
+        },
+        "chart": [
+            {
+                "x": 1735245935067,
+                "y": 1348.61
+            },
+            {
+                "x": 1752525935067,
+                "y": 1419.52
+            },
+            {
+                "x": 1756845935067,
+                "y": 1386.18
+            },
+            {
+                "x": 1759437935067,
+                "y": 1383.8
+            },
+            {
+                "x": 1760301935067,
+                "y": 1391.88
+            },
+            {
+                "x": 1760733935067,
+                "y": 1406.42
+            },
+            {
+                "x": 1761165935067,
+                "y": 1465.15
+            }
+        ],
+        "quote": {
+            "market_cap": "1982710.23",
+            "high": 1473.95,
+            "low": 1460.2,
+            "prev_close": 1466.8,
+            "current": 1465.15
+        },
+        "ownership": [
+            {
+                "name": "Promoter",
+                "value": 50.13
+            },
+            {
+                "name": "FII",
+                "value": 19.15
+            },
+            {
+                "name": "MF",
+                "value": 9.14
+            }
+        ],
+        "metrics": {
+            "pe": "22.21",
+            "pb": "2.26",
+            "risk": "Moderate risk"
+        },
+        "news": [
+            {
+                "id": "11760954832823",
+                "headline": "Top Gainers &amp; Losers on Oct 20: Ceat, RBL Bank, Ather Energy, Reliance Industries among top gainers today",
+                "intro": "Indian stock indices surged, buoyed by strong performances from key players such as Reliance and SBI. The Nifty 50 finished 0.52% higher at 25,843, and the S&amp;P BSE Sensex rose 0.49% to 84,363, reflecting positive domestic and global market trends.",
+                "byline": "A Ksheerasagar",
+                "date": "Mon, 20 Oct 2025 17:36 PM IST IST",
+                "timeToRead": "3",
+                "premiumStory": "false",
+                "section": "Markets",
+                "keywords": "",
+                "url": "https://www.livemint.com/market/stock-market-news/top-gainers-losers-on-oct-20-ceat-rbl-bank-ather-energy-reliance-industries-among-top-gainers-today-11760954832823.html",
+                "thumbnailimage": "https://www.livemint.com/lm-img/img/2025/10/20/90x90/2-0-419609143-m2m-0_1680691779794_1760954830123.jpg",
+                "listimage": "https://www.livemint.com/lm-img/img/2025/10/20/90x90/2-0-419609143-m2m-0_1680691779794_1760954830123.jpg",
+                "smallimage": "https://www.livemint.com/lm-img/img/2025/10/20/90x90/2-0-419609143-m2m-0_1680691779794_1760954830123.jpg",
+                "bigimage": "https://www.livemint.com/lm-img/img/2025/10/20/600x338/2-0-419609143-m2m-0_1680691779794_1760954830123.jpg",
+                "imagecaption": "Top Gainers & Losers on Oct 20: Ceat, RBL Bank, Ather Energy, Reliance Industries among top gainers today",
+                "image_621x414": "https://www.livemint.com/lm-img/img/2025/10/20/600x338/2-0-419609143-m2m-0_1680691779794_1760954830123.jpg",
+                "image_222x148": "https://www.livemint.com/lm-img/img/2025/10/20/600x338/2-0-419609143-m2m-0_1680691779794_1760954830123.jpg",
+                "sliderimages": [],
+                "slidervideos": [],
+                "interactives": [],
+                "body": ""
+            },
+            {
+                "id": "11760933153395",
+                "headline": "Reliance share price jumps 3% after Q2 results 2025. Experts see more upside",
+                "intro": "Reliance share price today opened with an upside gap at  \u20b91,440 apiece on the NSE and touched an intraday high of  \u20b91,460.60 per share within a few minutes of the Opening Bell",
+                "byline": "Asit Manohar",
+                "date": "Mon, 20 Oct 2025 10:09 AM IST IST",
+                "timeToRead": "3",
+                "premiumStory": "false",
+                "section": "Markets",
+                "keywords": "",
+                "url": "https://www.livemint.com/market/stock-market-news/reliance-share-price-jumps-3-after-q2-results-2025-experts-see-more-upside-11760933153395.html",
+                "thumbnailimage": "https://www.livemint.com/lm-img/img/2025/10/20/90x90/Reliance_share_price_RIL_share_Q2_results_2025_1760934752467_1760934752695.JPG",
+                "listimage": "https://www.livemint.com/lm-img/img/2025/10/20/90x90/Reliance_share_price_RIL_share_Q2_results_2025_1760934752467_1760934752695.JPG",
+                "smallimage": "https://www.livemint.com/lm-img/img/2025/10/20/90x90/Reliance_share_price_RIL_share_Q2_results_2025_1760934752467_1760934752695.JPG",
+                "bigimage": "https://www.livemint.com/lm-img/img/2025/10/20/600x338/Reliance_share_price_RIL_share_Q2_results_2025_1760934752467_1760934752695.JPG",
+                "imagecaption": "RIL share: According to experts, Reliance share price may touch  \u20b91500 once it breaks above  \u20b91460 hurdle on a closing basis.",
+                "image_621x414": "https://www.livemint.com/lm-img/img/2025/10/20/600x338/Reliance_share_price_RIL_share_Q2_results_2025_1760934752467_1760934752695.JPG",
+                "image_222x148": "https://www.livemint.com/lm-img/img/2025/10/20/600x338/Reliance_share_price_RIL_share_Q2_results_2025_1760934752467_1760934752695.JPG",
+                "sliderimages": [],
+                "slidervideos": [],
+                "interactives": [],
+                "body": ""
+            },
+            {
+                "id": "11760929506968",
+                "headline": "F&amp;O Strategy: HDFC Bank to M&amp;M\u2014 Rupak De suggests buy or sell strategy for THESE stocks - 20 October 2025",
+                "intro": "Nifty 50 and Sensex are expected to open higher due to strong bank earnings and positive global cues. HDFC and ICICI Bank exceeded profit expectations, while Reliance underperformed. Nifty 50's technical outlook is positive, suggesting a potential rally towards 26,700 in the short term.",
+                "byline": "Dhanya Nagasundaram",
+                "date": "Mon, 20 Oct 2025 09:20 AM IST IST",
+                "timeToRead": "3",
+                "premiumStory": "false",
+                "section": "Markets",
+                "keywords": "",
+                "url": "https://www.livemint.com/market/stock-market-news/fo-strategy-nykaa-to-interglobe-aviation-rupak-de-suggests-buy-or-sell-strategy-for-these-stocks-20-october-2025-11760929506968.html",
+                "thumbnailimage": "https://www.livemint.com/lm-img/img/2025/10/20/90x90/Rupak_De_1748837570782_1760930617119.jpg",
+                "listimage": "https://www.livemint.com/lm-img/img/2025/10/20/90x90/Rupak_De_1748837570782_1760930617119.jpg",
+                "smallimage": "https://www.livemint.com/lm-img/img/2025/10/20/90x90/Rupak_De_1748837570782_1760930617119.jpg",
+                "bigimage": "https://www.livemint.com/lm-img/img/2025/10/20/600x338/Rupak_De_1748837570782_1760930617119.jpg",
+                "imagecaption": "F&O Strategy: HDFC Bank to M&M\u2014 Rupak De suggests buy or sell strategy for THESE stocks - 20 October 2025",
+                "image_621x414": "https://www.livemint.com/lm-img/img/2025/10/20/600x338/Rupak_De_1748837570782_1760930617119.jpg",
+                "image_222x148": "https://www.livemint.com/lm-img/img/2025/10/20/600x338/Rupak_De_1748837570782_1760930617119.jpg",
+                "sliderimages": [],
+                "slidervideos": [],
+                "interactives": [],
+                "body": ""
+            }
+        ],
+        "analyst": {
+            "mean": 1.70588235,
+            "total": 34
+        }
+    },
+    "TATA": {
+        "profile": {
+            "name": "Tata Consultancy Services",
+            "logo": "https://logo.clearbit.com/tcs.com/",
+            "ticker": "TATA"
+        },
+        "chart": [
+            {
+                "x": 1735251464122,
+                "y": 3455.06
+            },
+            {
+                "x": 1752531464122,
+                "y": 3181.44
+            },
+            {
+                "x": 1756851464122,
+                "y": 3044.96
+            },
+            {
+                "x": 1759443464122,
+                "y": 2979.67
+            },
+            {
+                "x": 1760307464122,
+                "y": 2997.63
+            },
+            {
+                "x": 1760739464122,
+                "y": 2975.64
+            },
+            {
+                "x": 1761171464122,
+                "y": 3007.25
+            }
+        ],
+        "quote": {
+            "market_cap": "1088049.37",
+            "high": 3033.95,
+            "low": 2996.05,
+            "prev_close": 3014.25,
+            "current": 3007.25
+        },
+        "ownership": [
+            {
+                "name": "Promoter",
+                "value": 71.77
+            },
+            {
+                "name": "FII",
+                "value": 12.68
+            },
+            {
+                "name": "MF",
+                "value": 4.32
+            }
+        ],
+        "metrics": {
+            "pe": "21.14",
+            "pb": "10.22",
+            "risk": "Moderate risk"
+        },
+        "news": [
+            {
+                "id": "11760867876917",
+                "headline": "IIM Bangalore Placements: Goldman Sachs to TCS \u2014 Who are the top recruiters at the business school this year?",
+                "intro": "IIM Bangalore PGP and PGP-BA 2025-27 batch placement round recorded offers from top global firms like Goldman Sachs, American Express, Tata Consultancy Services, among 137 companies.",
+                "byline": "",
+                "date": "Sun, 19 Oct 2025 16:33 PM IST IST",
+                "timeToRead": "2",
+                "premiumStory": "false",
+                "section": "Education",
+                "keywords": "",
+                "url": "https://www.livemint.com/education/iim-bangalore-placements-goldman-sachs-to-tcs-who-are-the-top-recruiters-at-the-business-school-this-year-11760867876917.html",
+                "thumbnailimage": "https://www.livemint.com/lm-img/img/2025/10/19/90x90/2-0-114385030-IIM-B-4C-0_1681885485558_1760870841054.jpg",
+                "listimage": "https://www.livemint.com/lm-img/img/2025/10/19/90x90/2-0-114385030-IIM-B-4C-0_1681885485558_1760870841054.jpg",
+                "smallimage": "https://www.livemint.com/lm-img/img/2025/10/19/90x90/2-0-114385030-IIM-B-4C-0_1681885485558_1760870841054.jpg",
+                "bigimage": "https://www.livemint.com/lm-img/img/2025/10/19/600x338/2-0-114385030-IIM-B-4C-0_1681885485558_1760870841054.jpg",
+                "imagecaption": "IIM Bangalore completed its summer placement round on 18 October 2025.",
+                "image_621x414": "https://www.livemint.com/lm-img/img/2025/10/19/600x338/2-0-114385030-IIM-B-4C-0_1681885485558_1760870841054.jpg",
+                "image_222x148": "https://www.livemint.com/lm-img/img/2025/10/19/600x338/2-0-114385030-IIM-B-4C-0_1681885485558_1760870841054.jpg",
+                "sliderimages": [],
+                "slidervideos": [],
+                "interactives": [],
+                "body": ""
+            },
+            {
+                "id": "11760777565193",
+                "headline": "TCS to retrain 1,00,000 employees every year amid AI-driven changes. Here's what CTO Harrick Vin says",
+                "intro": "Tata Consultancy Services plans to retrain 1,00,000 employees annually as AI transforms client demand, as per chief technology officer Harrick Vin. He also stressed the need for constant re-skilling due to rapidly changing technology skills and roles.",
+                "byline": "",
+                "date": "Sat, 18 Oct 2025 15:14 PM IST IST",
+                "timeToRead": "2",
+                "premiumStory": "false",
+                "section": "Companies",
+                "keywords": "",
+                "url": "https://www.livemint.com/companies/news/tcs-tech-chief-harrick-vin-will-retrain-100000-employees-each-year-ai-challenge-transform-demand-outsource-models-11760777565193.html",
+                "thumbnailimage": "https://www.livemint.com/lm-img/img/2025/10/18/90x90/TCS-RESULTS--0_1760779026742_1760779040494.JPG",
+                "listimage": "https://www.livemint.com/lm-img/img/2025/10/18/90x90/TCS-RESULTS--0_1760779026742_1760779040494.JPG",
+                "smallimage": "https://www.livemint.com/lm-img/img/2025/10/18/90x90/TCS-RESULTS--0_1760779026742_1760779040494.JPG",
+                "bigimage": "https://www.livemint.com/lm-img/img/2025/10/18/600x338/TCS-RESULTS--0_1760779026742_1760779040494.JPG",
+                "imagecaption": "TCS plans to retrain 1 lakh employees yearly as AI changes transform client demand and outsourcing models, said CTO Harrick Vin.  ",
+                "image_621x414": "https://www.livemint.com/lm-img/img/2025/10/18/600x338/TCS-RESULTS--0_1760779026742_1760779040494.JPG",
+                "image_222x148": "https://www.livemint.com/lm-img/img/2025/10/18/600x338/TCS-RESULTS--0_1760779026742_1760779040494.JPG",
+                "sliderimages": [],
+                "slidervideos": [],
+                "interactives": [],
+                "body": ""
+            },
+            {
+                "id": "11760622132631",
+                "headline": "Infosys fares better than expected, steers clear from big-bang AI announcements",
+                "intro": "TCS and Wipro have seen their revenue decline in the first half of the fiscal year, while HCL Tech, Infosys and Tech Mahindra have seen growth. The decline does not portend well for the former, given that the first half is typically better for Indian IT firms.",
+                "byline": "Jas Bardia",
+                "date": "Thu, 16 Oct 2025 22:25 PM IST IST",
+                "timeToRead": "5",
+                "premiumStory": "true",
+                "section": "Companies",
+                "keywords": "",
+                "url": "https://www.livemint.com/companies/infosys-fares-better-ai-layoffs-wipro-tcs-jobs-inflation-trump-it-firms-tech-mahindra-hcl-11760622132631.html",
+                "thumbnailimage": "https://www.livemint.com/lm-img/img/2025/10/16/90x90/DAVOS-WEF-2025-31_1737369284632_1760630292346.jpg",
+                "listimage": "https://www.livemint.com/lm-img/img/2025/10/16/90x90/DAVOS-WEF-2025-31_1737369284632_1760630292346.jpg",
+                "smallimage": "https://www.livemint.com/lm-img/img/2025/10/16/90x90/DAVOS-WEF-2025-31_1737369284632_1760630292346.jpg",
+                "bigimage": "https://www.livemint.com/lm-img/img/2025/10/16/600x338/DAVOS-WEF-2025-31_1737369284632_1760630292346.jpg",
+                "imagecaption": "Infosys, India's second-largest IT services firm, ended the September quarter with $5.08 billion in revenue, up 2.66% from the June quarter and 3.77% from the previous year. ",
+                "image_621x414": "https://www.livemint.com/lm-img/img/2025/10/16/600x338/DAVOS-WEF-2025-31_1737369284632_1760630292346.jpg",
+                "image_222x148": "https://www.livemint.com/lm-img/img/2025/10/16/600x338/DAVOS-WEF-2025-31_1737369284632_1760630292346.jpg",
+                "sliderimages": [],
+                "slidervideos": [],
+                "interactives": [],
+                "body": ""
+            }
+        ],
+        "analyst": {
+            "mean": 2.18604651,
+            "total": 43
+        }
+    },
+    "HDFC": {
+        "profile": {
+            "name": "HDFC Bank",
+            "logo": null,
+            "ticker": "HDFC"
+        },
+        "chart": [
+            {
+                "x": 1735251530929,
+                "y": 932.63
+            },
+            {
+                "x": 1752531530929,
+                "y": 980.32
+            },
+            {
+                "x": 1756851530929,
+                "y": 973.75
+            },
+            {
+                "x": 1759443530929,
+                "y": 971.2
+            },
+            {
+                "x": 1760307530929,
+                "y": 985.15
+            },
+            {
+                "x": 1760739530929,
+                "y": 991.05
+            },
+            {
+                "x": 1761171530929,
+                "y": 1007.3
+            }
+        ],
+        "quote": {
+            "market_cap": "1547585.36",
+            "high": 1010.6,
+            "low": 1004.6,
+            "prev_close": 1003.3,
+            "current": 1007.3
+        },
+        "ownership": [
+            {
+                "name": "Promoter",
+                "value": 25.64
+            },
+            {
+                "name": "FII",
+                "value": 48.28
+            },
+            {
+                "name": "MF",
+                "value": 25.23
+            }
+        ],
+        "metrics": {
+            "pe": "21.62",
+            "pb": "2.85",
+            "risk": "Low risk"
+        },
+        "news": [
+            {
+                "id": "11761106282535",
+                "headline": "Is a corporate credit rebound around the corner? Yes, say banks taking early bets",
+                "intro": "Both private and public sector lenders report stronger pipelines and improved disbursements, signaling a potential turnaround in the second half of the fiscal year.",
+                "byline": "Subhana Shaikh",
+                "date": "Wed, 22 Oct 2025 13:35 PM IST IST",
+                "timeToRead": "5",
+                "premiumStory": "true",
+                "section": "Industry",
+                "keywords": "",
+                "url": "https://www.livemint.com/industry/banking/corporate-credit-demand-uptick-india-banks-rbi-11761106282535.html",
+                "thumbnailimage": "https://www.livemint.com/lm-img/img/2025/10/22/90x90/HDFC_1761119787402_1761119787549.jpg",
+                "listimage": "https://www.livemint.com/lm-img/img/2025/10/22/90x90/HDFC_1761119787402_1761119787549.jpg",
+                "smallimage": "https://www.livemint.com/lm-img/img/2025/10/22/90x90/HDFC_1761119787402_1761119787549.jpg",
+                "bigimage": "https://www.livemint.com/lm-img/img/2025/10/22/600x338/HDFC_1761119787402_1761119787549.jpg",
+                "imagecaption": "HDFC Bank's corporate and wholesale loan book rose 6.4% y-o-y and 4.7% q-o-q, up from 1.7% y-o-y and a 1.3% q-o-q decline in the previous quarter.",
+                "image_621x414": "https://www.livemint.com/lm-img/img/2025/10/22/600x338/HDFC_1761119787402_1761119787549.jpg",
+                "image_222x148": "https://www.livemint.com/lm-img/img/2025/10/22/600x338/HDFC_1761119787402_1761119787549.jpg",
+                "sliderimages": [],
+                "slidervideos": [],
+                "interactives": [],
+                "body": ""
+            },
+            {
+                "id": "11761055417182",
+                "headline": "FD rates: THESE 8 banks offer up to 7.1% interest on fixed deposits to senior citizens",
+                "intro": "We list out highest fixed deposit interest rates offered by banks (both private and government-run) to senior citizen depositors. &nbsp;",
+                "byline": "Vimal Chander Joshi",
+                "date": "Wed, 22 Oct 2025 12:56 PM IST IST",
+                "timeToRead": "1",
+                "premiumStory": "false",
+                "section": "Money",
+                "keywords": "",
+                "url": "https://www.livemint.com/money/personal-finance/fd-interest-rates-these-8-banks-offer-upto-7-1-per-cent-interest-on-fixed-deposits-to-senior-citizens-11761055417182.html",
+                "thumbnailimage": "https://www.livemint.com/lm-img/img/2025/10/21/90x90/Budget_3-rupees-rupixen-unsplash_1761055530682_1761055671916.jpg",
+                "listimage": "https://www.livemint.com/lm-img/img/2025/10/21/90x90/Budget_3-rupees-rupixen-unsplash_1761055530682_1761055671916.jpg",
+                "smallimage": "https://www.livemint.com/lm-img/img/2025/10/21/90x90/Budget_3-rupees-rupixen-unsplash_1761055530682_1761055671916.jpg",
+                "bigimage": "https://www.livemint.com/lm-img/img/2025/10/21/600x338/Budget_3-rupees-rupixen-unsplash_1761055530682_1761055671916.jpg",
+                "imagecaption": "FD interest rates",
+                "image_621x414": "https://www.livemint.com/lm-img/img/2025/10/21/600x338/Budget_3-rupees-rupixen-unsplash_1761055530682_1761055671916.jpg",
+                "image_222x148": "https://www.livemint.com/lm-img/img/2025/10/21/600x338/Budget_3-rupees-rupixen-unsplash_1761055530682_1761055671916.jpg",
+                "sliderimages": [],
+                "slidervideos": [],
+                "interactives": [],
+                "body": ""
+            },
+            {
+                "id": "11761032752009",
+                "headline": "ICICI Bank vs HDFC Bank: Why a treasury dip doesn\u2019t undermine ICICI\u2019s edge",
+                "intro": "Core earnings, stronger margins, and a leaner balance sheet make ICICI Bank a more attractive bet than peer HDFC Bank, despite slower profit growth and a dip in treasury income in Q2FY26.",
+                "byline": "",
+                "date": "Tue, 21 Oct 2025 15:17 PM IST IST",
+                "timeToRead": "2",
+                "premiumStory": "true",
+                "section": "Markets",
+                "keywords": "",
+                "url": "https://www.livemint.com/market/mark-to-market/icici-bank-vs-hdfc-bank-q2fy26-treasury-gains-nim-valuation-11761032752009.html",
+                "thumbnailimage": "https://www.livemint.com/lm-img/img/2025/10/21/90x90/INDIA-MUMBAI-67_1761036794974_1761036810602.jpg",
+                "listimage": "https://www.livemint.com/lm-img/img/2025/10/21/90x90/INDIA-MUMBAI-67_1761036794974_1761036810602.jpg",
+                "smallimage": "https://www.livemint.com/lm-img/img/2025/10/21/90x90/INDIA-MUMBAI-67_1761036794974_1761036810602.jpg",
+                "bigimage": "https://www.livemint.com/lm-img/img/2025/10/21/600x338/INDIA-MUMBAI-67_1761036794974_1761036810602.jpg",
+                "imagecaption": "For Q2FY26, HDFC Bank reported a net profit growth of 10.8% year-on-year, compared with ICICI Bank\u2019s 5.2% increase. (File Photo: Bloomberg)",
+                "image_621x414": "https://www.livemint.com/lm-img/img/2025/10/21/600x338/INDIA-MUMBAI-67_1761036794974_1761036810602.jpg",
+                "image_222x148": "https://www.livemint.com/lm-img/img/2025/10/21/600x338/INDIA-MUMBAI-67_1761036794974_1761036810602.jpg",
+                "sliderimages": [],
+                "slidervideos": [],
+                "interactives": [],
+                "body": ""
+            }
+        ],
+        "analyst": {
+            "mean": 1.63157895,
+            "total": 38
+        }
+    }
+}

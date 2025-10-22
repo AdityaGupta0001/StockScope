@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>StockScope - About</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+      margin: 0;
+      min-height: 100vh;
+      overflow: hidden;
+      background: radial-gradient(circle at 30% 50%, #030617, #060b1a 70%);
+      color: #d1d5db;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+        .glass { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); backdrop-filter: blur(8px); }
+        h1 { color: #06b6d4; }
+        .muted { color: #9ca3af; }
+
+        #particle-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="antialiased font-sans">
+    <canvas id="particle-canvas"></canvas>
+    <nav class="bg-transparent p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold" style="color:#06b6d4">StockScope</a>
+            <div class="space-x-6">
+                <a href="/dashboard" class="muted hover:text-cyan-300">Dashboard</a>
+                <a href="/about" class="text-cyan-300 font-semibold">About</a>
+                <a href="/contact" class="muted hover:text-cyan-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto max-w-4xl p-8 mt-10">
+        <h1 class="text-4xl font-bold text-center mb-6">About StockScope</h1>
+        <div class="glass p-8 rounded-lg shadow-xl text-lg space-y-4">
+            <p class="muted">
+                This project demonstrates a modern, end-to-end CI/CD pipeline for deploying a containerized web application. The entire workflow is automated, from code commit to live deployment.
+            </p>
+            <h2 class="text-2xl font-semibold text-cyan-300 pt-4">Key Technologies Used:</h2>
+            <ul class="list-disc list-inside space-y-2 muted">
+                <li><span class="font-semibold text-gray-100">Python & Flask:</span> Lightweight and robust backend server.</li>
+                <li><span class="font-semibold text-gray-100">Docker:</span> Containerization for consistent environments.</li>
+                <li><span class="font-semibold text-gray-100">Jenkins:</span> Automation server to build, test, and deploy.</li>
+                <li><span class="font-semibold text-gray-100">Kubernetes (Minikube):</span> Orchestration for deployments.</li>
+                <li><span class="font-semibold text-gray-100">GitHub:</span> Version control and pipeline triggers.</li>
+            </ul>
+            <p class="pt-4 muted">
+                When a developer pushes a change to the GitHub repository, Jenkins automatically detects it, builds a new Docker image, and deploys the updated version to the Kubernetes cluster with zero downtime.
+            </p>
+        </div>
+    </div>
+</body>
+<script>
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particlesArray;
+
+    function initCanvas() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+    }
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.radius = Math.random() * 2 + 1;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.color = `rgba(96, 165, 250, ${Math.random() * 0.7 + 0.3})`; // light blue shades
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x < 0 || this.x > width) this.speedX = -this.speedX;
+        if (this.y < 0 || this.y > height) this.speedY = -this.speedY;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+
+    function createParticles() {
+      particlesArray = [];
+      const count = 100;
+      for (let i = 0; i < count; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      particlesArray.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', () => {
+      initCanvas();
+      createParticles();
+    });
+
+    initCanvas();
+    createParticles();
+    animate();
+    lucide.createIcons();
+</script>
+
+</html>

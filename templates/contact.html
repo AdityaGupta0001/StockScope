@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>StockScope - Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide-react@latest/dist/lucide.umd.js"></script>
+    <style>
+        body {
+      margin: 0;
+      min-height: 100vh;
+      overflow: hidden;
+      background: radial-gradient(circle at 30% 50%, #030617, #060b1a 70%);
+      color: #d1d5db;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+        .glass { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); backdrop-filter: blur(8px); }
+        .accent { color:#06b6d4; }
+        #particle-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="antialiased font-sans">
+    <canvas id="particle-canvas"></canvas>
+    <nav class="bg-transparent p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold accent">StockScope</a>
+            <div class="space-x-6">
+                <a href="/dashboard" class="text-gray-300 hover:text-cyan-300">Dashboard</a>
+                <a href="/about" class="text-gray-300 hover:text-cyan-300">About</a>
+                <a href="/contact" class="text-cyan-300 font-semibold">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto max-w-4xl p-8 mt-10">
+        <h1 class="text-4xl font-bold text-center mb-6">Get In Touch</h1>
+        <div class="glass p-8 rounded-lg shadow-xl text-lg space-y-6">
+            <p class="text-gray-300">
+                Have questions about the project or the CI/CD pipeline? Feel free to reach out.
+            </p>
+
+            <div class="flex items-center space-x-4">
+                <i data-lucide="mail" class="w-6 h-6 accent"></i>
+                <a href="mailto:project.admin@example.com" class="hover:text-cyan-300">project.admin@example.com</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <i data-lucide="github" class="w-6 h-6 accent"></i>
+                <a href="#" class="hover:text-cyan-300">github.com/YourUsername/ProjectRepo</a>
+            </div>
+
+             <div class="flex items-center space-x-4">
+                <i data-lucide="linkedin" class="w-6 h-6 accent"></i>
+                <a href="#" class="hover:text-cyan-300">linkedin.com/in/YourProfile</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particlesArray;
+
+    function initCanvas() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+    }
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.radius = Math.random() * 2 + 1;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.color = `rgba(96, 165, 250, ${Math.random() * 0.7 + 0.3})`; // light blue shades
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x < 0 || this.x > width) this.speedX = -this.speedX;
+        if (this.y < 0 || this.y > height) this.speedY = -this.speedY;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+
+    function createParticles() {
+      particlesArray = [];
+      const count = 100;
+      for (let i = 0; i < count; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      particlesArray.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', () => {
+      initCanvas();
+      createParticles();
+    });
+
+    initCanvas();
+    createParticles();
+    animate();
+    lucide.createIcons();
+</script>
+</body>
+</html>

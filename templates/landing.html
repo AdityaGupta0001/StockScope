@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>StockScope - Welcome</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.0/tsparticles.bundle.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script> <!-- Correct Lucide UMD package -->
+  <style>
+    :root {
+      --accent: #06b6d4;
+      --accent-2: #60a5fa;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow: hidden;
+      background: radial-gradient(circle at 30% 50%, #030617, #060b1a 70%);
+      color: #d1d5db;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    #particle-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+    }
+    .ticker-rail {
+      background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius: 999px;
+      padding: 6px 12px;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      overflow: hidden;
+    }
+    .marquee {
+      display: flex;
+      gap: 48px;
+      animation: marquee 18s linear infinite;
+    }
+    .ticker-item {
+      white-space: nowrap;
+      font-weight: 600;
+      color: #bfefff;
+    }
+    .ticker-item .sym {
+      color: #9dd3e4;
+      margin-right: 8px;
+      font-weight: 700;
+    }
+    @keyframes marquee { 0% {transform: translateX(0)} 100% {transform: translateX(-50%)} }
+
+    /* Glowing button matching theme */
+    .launch-btn {
+      padding: 17px 40px;
+      border-radius: 50px;
+      cursor: pointer;
+      border: none;
+      background: linear-gradient(90deg,var(--accent),var(--accent-2));
+      box-shadow: 0 0 25px rgba(6,182,212,0.3);
+      letter-spacing: 1.5px;
+      color: white;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: all .4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .launch-btn:hover {
+        transform: scale(1.06);
+        box-shadow: 0 0 45px rgba(6,182,212,0.5);
+        background-color: #045974;
+        }
+
+    .launch-btn:active {
+      transform: scale(0.97);
+      box-shadow: 0 0 15px rgba(6,182,212,0.3);
+    }
+  </style>
+</head>
+<body class="antialiased font-sans">
+  <canvas id="particle-canvas"></canvas>
+  <nav class="p-4 absolute top-0 left-0 w-full z-20">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="/" class="text-2xl font-extrabold" style="color:var(--accent)">StockScope</a>
+      <div class="space-x-6">
+        <a href="/dashboard" class="text-gray-300 hover:text-cyan-300">Dashboard</a>
+        <a href="/about" class="text-gray-300 hover:text-cyan-300">About</a>
+        <a href="/contact" class="text-gray-300 hover:text-cyan-300">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="min-h-screen flex flex-col items-center justify-center text-center p-4 relative z-10">
+    <div class="glass-card rounded-2xl p-8 md:p-12 shadow-2xl max-w-3xl w-full">
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-4" style="background:linear-gradient(90deg,var(--accent),var(--accent-2)); -webkit-background-clip:text; background-clip:text; color:transparent;">
+        StockScope
+      </h1>
+      <p class="text-lg md:text-xl text-gray-300 mb-6">
+        Modern insights into the Indian markets — charts, news, and investor metrics in one sleek dashboard.
+      </p>
+      <div class="flex flex-col md:flex-row gap-4 items-center justify-center">
+        <a href="/dashboard"><button class="launch-btn">Launch Dashboard</button></a>
+      </div>
+      <div class="ticker-rail ml-auto mr-auto max-w-lg mt-8">
+        <div class="marquee">
+          <div class="ticker-item"><span class="sym">RELIANCE</span> <span class="text-green-400">₹2,916.50 ▲1.6%</span></div>
+          <div class="ticker-item"><span class="sym">INFY</span> <span class="text-green-400">₹1,632.10 ▲0.9%</span></div>
+          <div class="ticker-item"><span class="sym">TCS</span> <span class="text-red-400">₹4,010.30 ▼0.8%</span></div>
+          <div class="ticker-item"><span class="sym">HDFC</span> <span class="text-green-400">₹1,522.80 ▲0.4%</span></div>
+          <div class="ticker-item"><span class="sym">RELIANCE</span> <span class="text-green-400">₹2,916.50 ▲1.6%</span></div>
+          <div class="ticker-item"><span class="sym">INFY</span> <span class="text-green-400">₹1,632.10 ▲0.9%</span></div>
+        </div>
+      </div>
+    </div>
+    <footer class="mt-12 text-gray-500">
+      <p>Powered by Python, Flask, and a CI/CD Pipeline. Built for modern developers.</p>
+    </footer>
+  </div>
+  
+    <script>
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particlesArray;
+
+    function initCanvas() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+    }
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.radius = Math.random() * 2 + 1;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.color = `rgba(96, 165, 250, ${Math.random() * 0.7 + 0.3})`; // light blue shades
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x < 0 || this.x > width) this.speedX = -this.speedX;
+        if (this.y < 0 || this.y > height) this.speedY = -this.speedY;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+
+    function createParticles() {
+      particlesArray = [];
+      const count = 100;
+      for (let i = 0; i < count; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      particlesArray.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', () => {
+      initCanvas();
+      createParticles();
+    });
+
+    initCanvas();
+    createParticles();
+    animate();
+    lucide.createIcons();
+</script>
+</body>
+</html>

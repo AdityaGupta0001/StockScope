@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>StockScope - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://unpkg.com/lucide-react@latest/dist/lucide.umd.js"></script>
+    <style>
+        :root {
+            --bg-1: #03060a;
+            --bg-2: #071028;
+            --card: rgba(255,255,255,0.03);
+            --muted: #9ca3af;
+            --accent: #06b6d4; /* cyan-400 */
+        }
+        html,body { height:100%; }
+        body {
+            background: radial-gradient(circle at 30% 50%, #030617, #060b1a 70%);
+            color: #d1d5db;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+        nav { backdrop-filter: blur(6px); background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-bottom: 1px solid rgba(255,255,255,0.02); }
+        a.brand { color: var(--accent); letter-spacing: -0.5px; }
+        .glass { background: var(--card); border: 1px solid rgba(255,255,255,0.04); }
+        .data-card { transition: transform .18s ease, box-shadow .18s ease; }
+        .data-card:hover { transform: translateY(-6px); box-shadow: 0 10px 30px rgba(2,6,23,0.7), 0 2px 6px rgba(6,182,212,0.06); }
+        .placeholder-pulse div, .placeholder-pulse i { animation: pulse 1.8s cubic-bezier(.4,0,.6,1) infinite; }
+        @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.45} }
+        input#ticker-search { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.035); }
+        #search-btn { box-shadow: 0 6px 18px rgba(6,182,212,0.08); }
+        .small-muted { color: var(--muted); }
+        .value-positive { color: #10b981; } /* green-500 */
+        .value-negative { color: #fb7185; } /* rose-400 */
+        /* Chart placeholder style */
+        #placeholder-chart { color: var(--muted); }
+        #particle-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+    </style>
+    <script>tailwind.config = { darkMode: 'class' }; document.documentElement.classList.add('dark');</script>
+</head>
+<body class="font-sans antialiased">
+    <canvas id="particle-canvas"></canvas>
+    <nav class="p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/" class="text-2xl font-extrabold brand">StockScope</a>
+            <div class="space-x-6 text-sm">
+                <a href="/dashboard" class="text-cyan-300 font-medium">Dashboard</a>
+                <a href="/about" class="small-muted hover:text-cyan-300">About</a>
+                <a href="/contact" class="small-muted hover:text-cyan-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+        <header class="mb-6">
+            <div class="relative mb-2">
+                 <input type="text" id="ticker-search" placeholder="Search for a ticker (e.g., RELIANCE, INFY...)" class="w-full p-4 pl-12 rounded-lg text-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                 <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
+                 <button id="search-btn" class="absolute right-2.5 top-1/2 -translate-y-1/2 bg-gradient-to-br from-cyan-500 to-blue-600 text-white font-semibold py-2.5 px-6 rounded-lg transition transform hover:scale-105">Search</button>
+             </div>
+             <div id="message-area" class="h-6 mt-2 text-red-400 text-sm"></div>
+        </header>
+
+        <main id="dashboard">
+            <section class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 p-6 glass rounded-xl">
+                <div id="data-header-info" class="flex items-center mb-4 md:mb-0 hidden">
+                    <img id="data-company-logo" src="" alt="Logo" class="w-16 h-16 rounded-full mr-4 border border-gray-700 bg-gray-800">
+                    <div>
+                        <h2 id="data-company-name" class="text-3xl font-bold"></h2>
+                        <span id="data-company-ticker" class="text-sm small-muted"></span>
+                    </div>
+                </div>
+                <div id="placeholder-header-info" class="flex items-center w-full md:w-auto mb-4 md:mb-0 placeholder-pulse">
+                    <div class="w-16 h-16 rounded-full mr-4 bg-gray-800"></div>
+                    <div>
+                        <div class="h-8 w-48 bg-gray-800 rounded mb-2"></div>
+                        <div class="h-5 w-24 bg-gray-800 rounded"></div>
+                    </div>
+                </div>
+
+                <div id="data-header-price" class="text-left md:text-right hidden">
+                    <span class="small-muted text-sm">Current Price</span>
+                    <div id="data-current-price" class="text-5xl font-bold text-gray-200 transition-colors duration-300">₹0.00</div>
+                </div>
+                <div id="placeholder-header-price" class="text-left md:text-right w-full md:w-auto placeholder-pulse">
+                    <div class="h-5 w-32 bg-gray-800 rounded mb-2 ml-auto"></div>
+                    <div class="h-12 w-48 bg-gray-800 rounded ml-auto"></div>
+                </div>
+            </section>
+
+            <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <div class="p-6 rounded-lg glass data-card">
+                    <div class="flex items-center small-muted mb-2"><i data-lucide="bar-chart-big" class="w-5 h-5 mr-2"></i><span>Market Cap</span></div>
+                    <div id="data-quote-market-cap" class="text-3xl font-semibold hidden">₹0 Cr</div>
+                    <div id="placeholder-quote-market-cap" class="h-8 w-3/4 bg-gray-800 rounded placeholder-pulse"></div>
+                </div>
+
+                <div class="p-6 rounded-lg glass data-card">
+                    <div class="flex items-center small-muted mb-2"><i data-lucide="trending-up" class="w-5 h-5 mr-2 text-green-400"></i><span>Day High</span></div>
+                    <div id="data-quote-high" class="text-3xl font-semibold hidden">₹0.00</div>
+                    <div id="placeholder-quote-high" class="h-8 w-3/4 bg-gray-800 rounded placeholder-pulse"></div>
+                </div>
+
+                <div class="p-6 rounded-lg glass data-card">
+                    <div class="flex items-center small-muted mb-2"><i data-lucide="trending-down" class="w-5 h-5 mr-2 text-red-400"></i><span>Day Low</span></div>
+                    <div id="data-quote-low" class="text-3xl font-semibold hidden">₹0.00</div>
+                    <div id="placeholder-quote-low" class="h-8 w-3/4 bg-gray-800 rounded placeholder-pulse"></div>
+                </div>
+
+                <div class="p-6 rounded-lg glass data-card">
+                    <div class="flex items-center small-muted mb-2"><i data-lucide="clipboard-x" class="w-5 h-5 mr-2"></i><span>Prev. Close</span></div>
+                    <div id="data-quote-prev-close" class="text-3xl font-semibold hidden">₹0.00</div>
+                    <div id="placeholder-quote-prev-close" class="h-8 w-3/4 bg-gray-800 rounded placeholder-pulse"></div>
+                </div>
+            </section>
+
+            <section class="p-4 rounded-lg glass min-h-[482px] flex items-center justify-center mb-6 relative overflow-hidden">
+                <div id="chart" class="w-full"></div>
+                <div id="placeholder-chart" class="text-center text-gray-400 placeholder-pulse absolute inset-0 flex items-center justify-center">
+                    <div>
+                        <i data-lucide="bar-chart-horizontal-big" class="w-16 h-16 mx-auto mb-4 text-gray-400"></i>
+                        <p>Search for a stock ticker to see the chart.</p>
+                    </div>
+                </div>
+                <!-- subtle animated grid accent -->
+                <svg class="pointer-events-none absolute right-6 bottom-6 opacity-10" width="220" height="120" viewBox="0 0 220 120" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#06b6d4"/><stop offset="1" stop-color="#60a5fa"/></linearGradient></defs><rect x="0" y="0" width="220" height="120" rx="8" stroke="url(#g)" stroke-opacity="0.35"/></svg>
+            </section>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="p-6 rounded-lg glass">
+                        <h3 class="text-xl font-semibold mb-4 text-cyan-300">Key Metrics</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center"><span class="small-muted">P/E Ratio</span><div id="data-metric-pe" class="text-xl font-bold hidden"></div><div id="placeholder-metric-pe" class="h-6 w-16 bg-gray-800 rounded placeholder-pulse"></div></div>
+                            <div class="flex justify-between items-center"><span class="small-muted">P/B Ratio</span><div id="data-metric-pb" class="text-xl font-bold hidden"></div><div id="placeholder-metric-pb" class="h-6 w-16 bg-gray-800 rounded placeholder-pulse"></div></div>
+                            <div class="flex justify-between items-center"><span class="small-muted">Risk Meter</span><div id="data-metric-risk" class="text-xl font-bold hidden"></div><div id="placeholder-metric-risk" class="h-6 w-24 bg-gray-800 rounded placeholder-pulse"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-lg glass min-h-[300px] flex items-center justify-center">
+                        <div id="ownership-chart" class="w-full"></div>
+                        <div id="placeholder-ownership-chart" class="text-center text-gray-400 placeholder-pulse"><i data-lucide="pie-chart" class="w-12 h-12 mx-auto mb-2"></i><p>Ownership structure loading...</p></div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="p-6 rounded-lg glass">
+                        <h3 class="text-xl font-semibold mb-2 text-cyan-300">Analyst Consensus</h3>
+                        <div id="data-analyst-rating" class="hidden">
+                             <div class="flex justify-between items-center">
+                                 <span id="analyst-rating-text" class="text-2xl font-bold"></span>
+                                 <span id="analyst-rating-count" class="small-muted"></span>
+                             </div>
+                             <div class="w-full bg-gray-800 rounded-full h-2.5 mt-2">
+                                 <div id="analyst-rating-bar" class="bg-gradient-to-r h-2.5 rounded-full" style="width: 0%"></div>
+                             </div>
+                        </div>
+                        <div id="placeholder-analyst-rating" class="placeholder-pulse"><div class="h-6 w-32 bg-gray-800 rounded mb-2"></div><div class="h-2.5 w-full bg-gray-800 rounded-full"></div></div>
+                    </div>
+
+                    <div class="p-6 rounded-lg glass">
+                        <h3 class="text-xl font-semibold mb-4 text-cyan-300">Recent News</h3>
+                        <div id="data-news-list" class="space-y-4 hidden"></div>
+                        <div id="placeholder-news-list" class="space-y-4 placeholder-pulse">
+                            <div class="flex items-center"><div class="h-4 w-full bg-gray-800 rounded"></div></div>
+                            <div class="flex items-center"><div class="h-4 w-5/6 bg-gray-800 rounded"></div></div>
+                            <div class="flex items-center"><div class="h-4 w-full bg-gray-800 rounded"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+    <script>lucide.createIcons();</script>
+    <script>
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particlesArray;
+
+    function initCanvas() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+    }
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.radius = Math.random() * 2 + 1;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.color = `rgba(96, 165, 250, ${Math.random() * 0.7 + 0.3})`; // light blue shades
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x < 0 || this.x > width) this.speedX = -this.speedX;
+        if (this.y < 0 || this.y > height) this.speedY = -this.speedY;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+
+    function createParticles() {
+      particlesArray = [];
+      const count = 100;
+      for (let i = 0; i < count; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      particlesArray.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', () => {
+      initCanvas();
+      createParticles();
+    });
+
+    initCanvas();
+    createParticles();
+    animate();
+</script>
+</body>
+</html>
