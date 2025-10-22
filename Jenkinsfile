@@ -3,8 +3,8 @@ pipeline {
     agent any
 
     tools {
-        // The name must match the tool you configured in Jenkins
-        docker 'docker-tool'
+        // Change 'docker' to 'dockerTool'
+        dockerTool 'docker-tool'
     }
     // 2. Define environment variables used throughout the pipeline.
     environment {
