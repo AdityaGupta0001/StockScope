@@ -1,11 +1,7 @@
 pipeline {
     // 1. Specify where to run the pipeline. 'any' means any available Jenkins agent.
     agent any
-
-    tools {
-        // Change 'docker' to 'dockerTool'
-        dockerTool 'docker-tool'
-    }
+    
     // 2. Define environment variables used throughout the pipeline.
     environment {
         // IMPORTANT: Change this to your Docker Hub username
