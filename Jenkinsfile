@@ -1,7 +1,7 @@
 pipeline {
     // 1. Specify where to run the pipeline. 'any' means any available Jenkins agent.
     agent any
-    
+
     // 2. Define environment variables used throughout the pipeline.
     environment {
         // IMPORTANT: Change this to your Docker Hub username
@@ -16,12 +16,6 @@ pipeline {
         
         // STAGE 1: Checkout Code
         // Pulls the latest code from your GitHub repository.
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/AdityaGupta0001/StockScope.git'
-            }
-        }
-
         // STAGE 2: Build Docker Image
         // Uses the Dockerfile in your repository to build a new image.
         stage('Build Docker Image') {
