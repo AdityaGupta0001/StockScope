@@ -1,0 +1,47 @@
+# Blue Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-tracker-blue
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: stock-tracker
+      color: blue
+  template:
+    metadata:
+      labels:
+        app: stock-tracker
+        color: blue
+    spec:
+      containers:
+      - name: stock-tracker-app
+        # This image will be updated by Jenkins
+        image: adityag3094/stock-tracker-app:latest
+        ports:
+        - containerPort: 5000
+---
+# Green Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-tracker-green
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: stock-tracker
+      color: green
+  template:
+    metadata:
+      labels:
+        app: stock-tracker
+        color: green
+    spec:
+      containers:
+      - name: stock-tracker-app
+        # This image will be updated by Jenkins
+        image: adityag3094/stock-tracker-app:latest
+        ports:
+        - containerPort: 5000

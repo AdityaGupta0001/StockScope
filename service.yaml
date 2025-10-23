@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: stock-tracker-service
+spec:
+  # This makes the service accessible from outside the cluster
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 5000
+  selector:
+    app: stock-tracker
+    # Initially, all traffic goes to the 'blue' deployment
+    color: blue
