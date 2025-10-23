@@ -42,16 +42,18 @@ pipeline {
             steps {
                 script {
                     echo "Starting blue-green deployment..."
-                    def liveColor = bat(returnStdout: true, script: "kubectl get service stock-tracker-service -o jsonpath='{.spec.selector.color}'").trim()
+                    def liveColor = bat(returnStdout: true, script: "@echo off && kubectl get service stock-tracker-service -o jsonpath='{.spec.selector.color}'").trim()
                     def inactiveColor = (liveColor == 'blue') ? 'green' : 'blue'
                     
-                    echo "Live color is ${liveColor}. Deploying to inactive color: ${inactiveColor}."
+                    echo "Live color is '${liveColor}'. Deploying to inactive color: '${inactiveColor}'."
 
                     bat "kubectl set image deployment/stock-tracker-${inactiveColor} stock-tracker-app=${IMAGE_NAME}:${IMAGE_TAG}"
                     bat "kubectl rollout status deployment/stock-tracker-${inactiveColor}"
                     
                     echo "Switching traffic to ${inactiveColor}..."
-                    bat "kubectl set selector service/stock-tracker-service color=${inactiveColor} --overwrite"
+
+                    // FIX #2: Remove the unsupported '--overwrite' flag
+                    bat "kubectl set selector service/stock-tracker-service color=${inactiveColor}"
                     
                     echo "Deployment complete."
                 }
