@@ -51,7 +51,7 @@ pipeline {
                     bat "kubectl rollout status deployment/stock-tracker-${inactiveColor}"
                     
                     echo "Switching traffic to ${inactiveColor}..."
-                    bat "kubectl patch service stock-tracker-service -p \"{\\\"spec\\\": {\\\"selector\\\": {\\\"color\\\": \\\"${inactiveColor}\\\"}}}\""
+                    bat "kubectl set selector service/stock-tracker-service color=${inactiveColor} --overwrite"
                     
                     echo "Deployment complete."
                 }
