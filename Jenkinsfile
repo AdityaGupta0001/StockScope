@@ -7,6 +7,7 @@ pipeline {
     }
 
     environment {
+        KUBECONFIG = "C:\\Users\\Dell\\.kube\\config"
         DOCKERHUB_USERNAME = "adityag3094"
         IMAGE_NAME = "${DOCKERHUB_USERNAME}/stock-tracker-app"
         IMAGE_TAG = "build-${BUILD_NUMBER}"
