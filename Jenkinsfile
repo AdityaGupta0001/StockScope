@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        tool 'Default', 'git'
-        tool 'docker', 'docker'
+        git 'Default'
+        docker 'docker'
     }
 
     environment {
