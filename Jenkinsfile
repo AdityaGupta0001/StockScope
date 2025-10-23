@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         git 'Default'
-        docker 'docker'
+        dockerTool 'docker'
     }
 
     environment {
